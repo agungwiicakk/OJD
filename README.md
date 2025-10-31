@@ -1,7 +1,7 @@
-# 🐍 Python OOP (Object-Oriented Design)
+# 🐍 Python OJD 
 
-Welcome to the **Python OOP (Object-Oriented Design)** project!  
-This repository demonstrates key concepts of Object-Oriented Programming in Python — including classes, objects, inheritance, encapsulation, polymorphism, and abstraction.
+Welcome to the **Python OJD** project!  
+By this repository, I would like to show current progress of learning python.
 
 ---
 
