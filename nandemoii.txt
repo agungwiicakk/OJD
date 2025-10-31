@@ -1,0 +1,4 @@
+git add .
+git commit -m "pesan"
+git pull origin main (kalau ada orang lain bekerja di reposition yang sama)
+git push origin main
