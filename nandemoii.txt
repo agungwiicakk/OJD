@@ -1,4 +1,14 @@
+PS D:\TRAINING2> git init
+Reinitialized existing Git repository in D:/TRAINING2/.git/
+PS D:\TRAINING2> git config --global user.email "agungwiicakk@gmail.com"
+PS D:\TRAINING2> git config --global user.name "agungwiicakk"
+PS D:\TRAINING2> git remote add origin https://github.com/agungwiicakk/OJD.git
+#test
 git add .
 git commit -m "pesan"
 git pull origin main (kalau ada orang lain bekerja di reposition yang sama)
+git push origin main
+#test
+git add .
+git commit -m "pesan"
 git push origin main
