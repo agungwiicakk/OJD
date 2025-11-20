@@ -59,7 +59,14 @@ pip install ultralytics roboflow opencv-python
 
 ## 📥 Download Dataset From Roboflow
 
-Update with your own Roboflow API key and workspace/project details.
+First need to download Roboflow API key and workspace/project details.
+
+sample dataset from roboflow 
+
+![roboflow](asset/Roboflow.png)
+
+you can do Dataset Split, Preprocessing, Augmentations before download your datasheet, and confirm Image and Annotation Format `YOLOv8`
+
 
 ```python
 !pip install roboflow
@@ -95,6 +102,7 @@ val: D:/TRAINING/Trial_1-15/valid/images
 
 ## 🏋️ Train YOLOv8 Model
 
+To conduct train dataset use this following script
 ```
 !yolo task = detect mode = train model = yolov8s.pt data = Trial_1-11/data.yaml epochs = 10 batch = 128
 ```
@@ -106,26 +114,60 @@ Here is sample of train batch that conduct by YOLOv8
 
 separately object can be train in 3 categories object ( number 0, number 1, and number 2)
 
+![Features](asset/results1.png)
+
 ---
 
 
 ## 🔍 Run Object Detection
 
-### Inference on Image
+### setup dataset in program
 
 ```python
 from ultralytics import YOLO
+import cv2
+model = YOLO('D:/TRAINING/ultralytics/runs/detect/train16/weights/best.pt')  # Custom trained model path
 
-model = YOLO("models/best.pt")
-results = model.predict(source="sample.jpg", show=True)
 ```
-![Features](asset/results1.png)
 
+###  setup webcam in program
 
-### Inference on Webcam
+```python
+cap = cv2.VideoCapture(0)  # 0 = default webcam
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
 
-```bash
-python src/predict.py --source 0
+print("Press 'q' to quit...")
+```
+
+---
+
+###  setup live detection in program
+
+```python
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        print("Failed to grab frame")
+        break
+
+    # YOLO inference
+    results = model(frame, conf=0.50)  # confidence threshold = 0.5
+
+    # Annotate frame with bounding boxes
+    annotated_frame = results[0].plot()
+
+    # Display the result
+    cv2.imshow("YOLOv8 Live Shape Detection", annotated_frame)
+
+    # Break loop on 'q' key press
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Cleanup
+cap.release()
+cv2.destroyAllWindows()
 ```
 
 ---
