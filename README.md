@@ -230,7 +230,9 @@ in this picture that object "kotak" can be detect more accurate due to data set 
 ## 🧪 Future Improvements
 
 * this methode already implement to detect roller bearing conveyor
+* ![Result](asset/implement1.jpg)
 * the project can detetc bearing abnormal
+* ![Result](asset/implement2.jpg)
 
 ---
 
