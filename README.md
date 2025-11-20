@@ -22,7 +22,7 @@ It’s ideal for both beginners learning OOP for the first time and intermediate
 - Real-world OOP examples (e.g., Employee Management, Banking System, etc.)
 ---
 ## Picture
-![Results] (asset/results.png)
+![Results](asset/results.png)
 
 ---
 
