@@ -20,8 +20,9 @@ It’s ideal for both beginners learning OOP for the first time and intermediate
 - Encapsulation and Access Modifiers  
 - Abstraction using Abstract Base Classes  
 - Real-world OOP examples (e.g., Employee Management, Banking System, etc.)
-- 
-![Results] (./asset/Results.png)
+---
+## Picture
+![Results] (asset/results.png)
 
 ---
 
