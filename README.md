@@ -15,9 +15,7 @@ The dataset is prepared and annotated using **Roboflow**, and the training + inf
 * Train and run YOLOv8 for custom object detection
 * Uses dataset from **Roboflow** (auto-generated YAML)
 * Supports detecting multiple geometric shapes
-* Includes inference script for images, videos, and webcam
-* Export model to ONNX / TensorRT if needed
-
+![Features](asset/...png)
 ---
 
 ## 📂 Project Structure
@@ -64,28 +62,52 @@ pip install ultralytics roboflow opencv-python
 Update with your own Roboflow API key and workspace/project details.
 
 ```python
-from roboflow import Roboflow
-rf = Roboflow(api_key="YOUR_ROBOFLOW_API_KEY")
-project = rf.workspace("your-workspace").project("your-dataset")
-dataset = project.version(1).download("yolov8")
-```
+!pip install roboflow
 
+from roboflow import Roboflow
+rf = Roboflow(api_key="b0Vg********dvK4SoHA")
+project = rf.workspace("trial1-xrqmy").project("trial_1-br956")
+version = project.version(15)
+dataset = version.download("yolov8")
+ 
+```
 This will download dataset and YAML to `data/`.
+and then need to setup `data.yaml`
+
+```python
+names:
+- Kotak
+- Lingkaran
+- Panjang
+nc: 3
+roboflow:
+  license: CC BY 4.0
+  project: trial_1-br956
+  url: https://universe.roboflow.com/trial1-xrqmy/trial_1-br956/dataset/15
+  version: 15
+  workspace: trial1-xrqmy
+test: D:/TRAINING/Trial_1-15/test/images
+train: D:/TRAINING/Trial_1-15/train/images
+val: D:/TRAINING/Trial_1-15/valid/images
+```
 
 ---
 
 ## 🏋️ Train YOLOv8 Model
 
-```python
-from ultralytics import YOLO
-
-model = YOLO("yolov8n.pt")  # or yolov8s.pt for better accuracy
-model.train(data="data/data.yaml", epochs=50, imgsz=640)
+```
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-11/data.yaml epochs = 10 batch = 128
 ```
 
-Training output and weights will be saved in `runs/detect/train/`.
+Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train15\weights\best.pt`.
+
+Here is sample of train batch that conduct by YOLOv8
+![Features](asset/train_batch01.jpg)
+
+separately object can be train in 3 categories object ( number 0, number 1, and number 2)
 
 ---
+
 
 ## 🔍 Run Object Detection
 
@@ -97,6 +119,8 @@ from ultralytics import YOLO
 model = YOLO("models/best.pt")
 results = model.predict(source="sample.jpg", show=True)
 ```
+![Features](asset/results1.png)
+
 
 ### Inference on Webcam
 
