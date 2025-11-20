@@ -21,7 +21,7 @@ It’s ideal for both beginners learning OOP for the first time and intermediate
 - Abstraction using Abstract Base Classes  
 - Real-world OOP examples (e.g., Employee Management, Banking System, etc.)
 - 
-![Alt text] (Results.png)
+![Alt text] (asset/Results.png)
 ---
 
 ## 🛠️ Technologies Used
