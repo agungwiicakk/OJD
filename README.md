@@ -104,7 +104,7 @@ val: D:/TRAINING/Trial_1-15/valid/images
 
 To conduct train dataset use this following script
 ```
-!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-11/data.yaml epochs = 10 batch = 128
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 100 batch = 128
 ```
 
 Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train15\weights\best.pt`.
@@ -191,7 +191,7 @@ Ensure these match the annotations in Roboflow.
 
 ## 📊 Results
 
-
+After we conduct training, we get the training result graph that has 8 indication of result value training.
 ![Features](asset/results1.png)
 by this result we can get some information like :
 1. train/box_loss -> How well YOLO predicts bounding-box positions.
@@ -216,12 +216,14 @@ in other words,
 
 👉 The model is extremely well-trained and likely very accurate.
 
+![Result](asset/labels1.jpg)
+In the bar chart (Left Top), it's that show that data label "kotak" has more rather than "lingkaran" and "panjang", 
+thats mean my data set is unbalance, it's also will impact to the other categories value.
 
-```
-results/
-   ├── prediction1.jpg
-   ├── prediction2.jpg
-```
+the second is about bounding box (right top), mostly data set is in the center of the picture, "persegi" and "lingkaran" has relatif area, but objek "panjang" has more big variation.
+
+![Result](asset/val_batch2_pred1.jpg)
+in this picture that object "kotak" can be detect more accurate due to data set is more stable. 
 
 ---
 
