@@ -113,8 +113,9 @@ Here is sample of train batch that conduct by YOLOv8
 ![Features](asset/train_batch01.jpg)
 
 separately object can be train in 3 categories object ( number 0, number 1, and number 2)
-
-![Features](asset/results1.png)
+![Features](asset/BoxF1_curve1.png)
+by this training data we can get best confidence threshold for my model is `0.856`, but for better stabilization during capturing the data I will set to `0.5`
+but High precision with fewer false positives → we can use conf=`0.85`
 
 ---
 
@@ -172,39 +173,49 @@ cv2.destroyAllWindows()
 
 ---
 
-## 📝 Example Classes
+## 📝 Example of Detection
 
-Your dataset should include labels like:
+based on the activity training we can detect models of shape of object :
+this is sample of detection long object 
+![Features](asset/Screenshot1.png)
 
-```
-square
-circle
-long_object
-```
+this is sample of detection circle object 
+![Features](asset/Screenshot2.png)
+
+this is sample of detection square object 
+![Features](asset/Screenshot3.png)
 
 Ensure these match the annotations in Roboflow.
 
 ---
 
-## 📦 Export Model
-
-```python
-model.export(format="onnx")
-```
-
-Other export formats supported: TensorRT, CoreML, TFLite.
-
----
-
 ## 📊 Results
 
-You can document:
 
-* mAP performance
-* Example predictions
-* Notes about performance and future improvements
+![Features](asset/results1.png)
+by this result we can get some information like :
+1. train/box_loss -> How well YOLO predicts bounding-box positions.
+2. train/cls_loss -> how well the model identifies the correct class.
+3. train/dfl_loss -> (Distribution Focal Loss) helps refine box borders.
+4. metrics/precision(B) -> How accurately the model detects objects.
+5. metrics/recall(B) -> How many objects the model successfully finds.
+6. metrics/mAP50(B) -> How well predicted boxes overlap ground truth (IoU ≥ 0.5).
+7. metrics/mAP50-95(B) -> This is a tougher metric (IoU from 0.5 to 0.95).
+8. val/cls_loss shows a spike early
 
-Add images to the repo (example):
+in other words,
+🎯 OVERALL EVALUATION OF TRAINING
+
+✔️ Box loss decreasing
+✔️ Class loss very low
+✔️ DFL loss stable
+✔️ Precision near 1.0
+✔️ Recall near 1.0
+✔️ mAP50 and mAP50-95 near 1.0
+✔️ No major instability
+
+👉 The model is extremely well-trained and likely very accurate.
+
 
 ```
 results/
