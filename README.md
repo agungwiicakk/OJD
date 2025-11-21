@@ -104,10 +104,13 @@ val: D:/TRAINING/Trial_1-15/valid/images
 
 To conduct train dataset use this following script
 ```
-!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 100 batch = 128
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 30 batch = 8
 ```
 
 Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train15\weights\best.pt`.
+
+here is training progress for this model
+![Features](Assets/Epoch_training_progress.png)
 
 Here is sample of train batch that conduct by YOLOv8
 ![Features](Assets/train_batch1361.jpg)
@@ -245,5 +248,15 @@ MIT License
 
 ---
 
+## 📄 Note
+Previously while training the models i use this following script
+```
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 100 batch = 128
+```
+so the recommendation for training unit will be
+```
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 30 batch = 8
+```
 
 
+---
