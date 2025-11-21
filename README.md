@@ -15,7 +15,7 @@ The dataset is prepared and annotated using **Roboflow**, and the training + inf
 * Train and run YOLOv8 for custom object detection
 * Uses dataset from **Roboflow** (auto-generated YAML)
 * Supports detecting multiple geometric shapes
-![Features](asset/...png)
+![Features](Assets/...png)
 ---
 
 ## 📂 Project Structure
@@ -63,7 +63,7 @@ First need to download Roboflow API key and workspace/project details.
 
 sample dataset from roboflow 
 
-![roboflow](asset/Roboflow.png)
+![roboflow](Assets/Roboflow.png)
 
 you can do Dataset Split, Preprocessing, Augmentations before download your datasheet, and confirm Image and Annotation Format `YOLOv8`
 
@@ -110,12 +110,15 @@ To conduct train dataset use this following script
 Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train15\weights\best.pt`.
 
 Here is sample of train batch that conduct by YOLOv8
-![Features](asset/train_batch01.jpg)
+![Features](Assets/train_batch1361.jpg)
 
 separately object can be train in 3 categories object ( number 0, number 1, and number 2)
-![Features](asset/BoxF1_curve1.png)
-by this training data we can get best confidence threshold for my model is `0.856`, but for better stabilization during capturing the data I will set to `0.5`
-but High precision with fewer false positives → we can use conf=`0.85`
+![Features](Assets/BoxF1_curve.png)
+by this training data we can get best confidence threshold for my model is `0.801`, but for better stabilization during capturing the data I will set to `0.5`
+but High precision with fewer false positives → we can use conf=`0.8`
+
+After train process, the model do validation to the model that already prepare before. 
+![Features](Assets/val_batch0_pred.jpg)
 
 ---
 
@@ -177,13 +180,13 @@ cv2.destroyAllWindows()
 
 based on the activity training we can detect models of shape of object :
 this is sample of detection long object 
-![Features](asset/Screenshot1.png)
+![Features](Assets/Screenshot1.png)
 
 this is sample of detection circle object 
-![Features](asset/Screenshot2.png)
+![Features](Assets/Screenshot2.png)
 
 this is sample of detection square object 
-![Features](asset/Screenshot3.png)
+![Features](Assets/Screenshot3.png)
 
 Ensure these match the annotations in Roboflow.
 
@@ -192,7 +195,7 @@ Ensure these match the annotations in Roboflow.
 ## 📊 Results
 
 After we conduct training, we get the training result graph that has 8 indication of result value training.
-![Features](asset/results1.png)
+![Features](Assets/results.png)
 by this result we can get some information like :
 1. train/box_loss -> How well YOLO predicts bounding-box positions.
 2. train/cls_loss -> how well the model identifies the correct class.
@@ -216,13 +219,13 @@ in other words,
 
 👉 The model is extremely well-trained and likely very accurate.
 
-![Result](asset/labels1.jpg)
+![Result](Assets/labels.jpg)
 In the bar chart (Left Top), it's that show that data label "kotak" has more rather than "lingkaran" and "panjang", 
 thats mean my data set is unbalance, it's also will impact to the other categories value.
 
 the second is about bounding box (right top), mostly data set is in the center of the picture, "persegi" and "lingkaran" has relatif area, but objek "panjang" has more big variation.
 
-![Result](asset/val_batch2_pred1.jpg)
+![Result](Assets/val_batch1_pred.jpg)
 in this picture that object "kotak" can be detect more accurate due to data set is more stable. 
 
 ---
@@ -230,9 +233,9 @@ in this picture that object "kotak" can be detect more accurate due to data set 
 ## 🧪 Future Improvements
 
 * this methode already implement to detect roller bearing conveyor
-* ![Result](asset/implement1.jpg)
+* ![Result](Assets/implement1.jpg)
 * the project can detetc bearing abnormal
-* ![Result](asset/implement2.jpg)
+* ![Result](Assets/implement2.jpg)
 
 ---
 
