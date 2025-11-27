@@ -20,18 +20,17 @@ The dataset is prepared and annotated using **Roboflow**, and the training + inf
 
 ## 📂 Project Structure
 
+![Structure](Assets/flowchart.png)
 ```
 python-ojd/
 │
 ├── data/                 # Roboflow dataset
-├── models/               # YOLOv8 models
+├── models/               # Ultralytics YOLOv8 models
 ├── process/
-│   ├── training          # Training by VS code or google colab
-│   ├── predict.py        # Inference script
+│   ├── training tools    # Training by VS code or google colab
+│   ├── training script   # jupyter notebook
 │   └── utils.py          # Helper functions
-│
-├── requirements.txt      # Python dependencies
-└── README.md             # This file
+└── Detect object         # use camera
 ```
 
 ---
