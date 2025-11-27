@@ -36,24 +36,11 @@ python-ojd/
 
 ---
 
-## 🧰 Requirements
+## 🧰 System Usage
 
-* Python 3.8+
+* Python 3.12
 * Ultralytics YOLOv8
-* Roboflow Python SDK (optional)
-* OpenCV (for image/video inference)
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Or manually:
-
-```bash
-pip install ultralytics roboflow opencv-python
-```
+* Roboflow
 
 ---
 
@@ -61,12 +48,11 @@ pip install ultralytics roboflow opencv-python
 
 First need to download Roboflow API key and workspace/project details.
 
-sample dataset from roboflow 
-
 ![roboflow](Assets/Roboflow.png)
 
 you can do Dataset Split, Preprocessing, Augmentations before download your datasheet, and confirm Image and Annotation Format `YOLOv8`
 
+sample dataset from roboflow 
 
 ```python
 !pip install roboflow
