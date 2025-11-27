@@ -23,10 +23,10 @@ The dataset is prepared and annotated using **Roboflow**, and the training + inf
 ```
 python-ojd/
 │
-├── data/                 # Roboflow dataset (downloaded automatically)
-├── models/               # YOLOv8 models (weights)
-├── src/
-│   ├── train.py          # Training script
+├── data/                 # Roboflow dataset
+├── models/               # YOLOv8 models
+├── process/
+│   ├── training          # Training by VS code or google colab
 │   ├── predict.py        # Inference script
 │   └── utils.py          # Helper functions
 │
