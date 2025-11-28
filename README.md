@@ -1,6 +1,6 @@
-# 🐍 Python OJD – Object Detection (YOLOv8 + Roboflow)
+# 🐍 Python OJD – Object Shape Detection (YOLOv8 + Roboflow)
 
-This repository contains an end-to-end Object Detection project (OJD) using **Ultralytics YOLOv8**. The goal is to detect **three shape categories**:
+This repository contains an end-to-end Object Shape Detection project (OJD) using **Ultralytics YOLOv8**. The goal is to detect **three shape categories**:
 
 * **Square**
 * **Circle**
@@ -20,18 +20,17 @@ The dataset is prepared and annotated using **Roboflow**, and the training + inf
 
 ## 📂 Project Structure
 
+![Structure](Assets/flowchart.png)
 ```
 python-ojd/
 │
-├── data/                 # Roboflow dataset (downloaded automatically)
-├── models/               # YOLOv8 models (weights)
-├── src/
-│   ├── train.py          # Training script
-│   ├── predict.py        # Inference script
+├── data/                 # Roboflow dataset
+├── models/               # Ultralytics YOLOv8 models
+├── process/
+│   ├── training tools    # Training by VS code or google colab
+│   ├── training script   # jupyter notebook
 │   └── utils.py          # Helper functions
-│
-├── requirements.txt      # Python dependencies
-└── README.md             # This file
+└── Detect object         # use camera
 ```
 
 ---
@@ -50,9 +49,9 @@ First need to download Roboflow API key and workspace/project details.
 
 ![roboflow](Assets/Roboflow.png)
 
-you can do Dataset Split, Preprocessing, Augmentations before download your datasheet, and confirm Image and Annotation Format `YOLOv8`
+We conduct process for Dataset Split, Preprocessing, Augmentations before download the datasheet, and confirm Image and Annotation Format `YOLOv8`
 
-sample dataset from roboflow 
+Here is sample dataset from roboflow 
 
 ```python
 !pip install roboflow
@@ -93,7 +92,7 @@ To conduct train dataset use this following script
 !yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 30 batch = 8
 ```
 
-Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train15\weights\best.pt`.
+Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train16\weights\best.pt`.
 
 here is training progress for this model
 ![Features](Assets/Epoch_training_progress.png)
@@ -104,7 +103,7 @@ Here is sample of train batch that conduct by YOLOv8
 separately object can be train in 3 categories object ( number 0, number 1, and number 2)
 ![Features](Assets/BoxF1_curve.png)
 by this training data we can get best confidence threshold for my model is `0.801`, but for better stabilization during capturing the data I will set to `0.5`
-but High precision with fewer false positives → we can use conf=`0.8`
+but high precision with fewer false positives → we can use conf=`0.8`
 
 After train process, the model do validation to the model that already prepare before. 
 ![Features](Assets/val_batch0_pred.jpg)
@@ -212,7 +211,7 @@ in other words,
 In the bar chart (Left Top), it's that show that data label "kotak" has more rather than "lingkaran" and "panjang", 
 thats mean my data set is unbalance, it's also will impact to the other categories value.
 
-the second is about bounding box (right top), mostly data set is in the center of the picture, "persegi" and "lingkaran" has relatif area, but objek "panjang" has more big variation.
+the second is about bounding box (right top), mostly data set is in the center of the picture, "kotak" and "lingkaran" has relatif area, but objek "panjang" has more big variation.
 
 ![Result](Assets/val_batch1_pred.jpg)
 in this picture that object "kotak" can be detect more accurate due to data set is more stable. 
@@ -237,12 +236,12 @@ MIT License
 ## 📄 Note
 Previously while training the models i use this following script
 ```
-!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 100 batch = 128
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-16/data.yaml epochs = 100 batch = 128
 ```
 so the recommendation for training unit will be
 ```
-!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 30 batch = 8
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-16/data.yaml epochs = 30 batch = 8
 ```
-
+recommendation use proportional of batch with epoc at least 20 to get stable of object detection
 
 ---
