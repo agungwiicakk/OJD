@@ -59,7 +59,7 @@ Here is sample dataset from roboflow
 from roboflow import Roboflow
 rf = Roboflow(api_key="b0Vg********dvK4SoHA")
 project = rf.workspace("trial1-xrqmy").project("trial_1-br956")
-version = project.version(16)
+version = project.version(15)
 dataset = version.download("yolov8")
  
 ```
@@ -75,12 +75,12 @@ nc: 3
 roboflow:
   license: CC BY 4.0
   project: trial_1-br956
-  url: https://universe.roboflow.com/trial1-xrqmy/trial_1-br956/dataset/16
-  version: 16
+  url: https://universe.roboflow.com/trial1-xrqmy/trial_1-br956/dataset/15
+  version: 15
   workspace: trial1-xrqmy
-test: D:/TRAINING/Trial_1-16/test/images
-train: D:/TRAINING/Trial_1-16/train/images
-val: D:/TRAINING/Trial_1-16/valid/images
+test: D:/TRAINING/Trial_1-15/test/images
+train: D:/TRAINING/Trial_1-15/train/images
+val: D:/TRAINING/Trial_1-15/valid/images
 ```
 
 ---
@@ -89,7 +89,7 @@ val: D:/TRAINING/Trial_1-16/valid/images
 
 To conduct train dataset use this following script
 ```
-!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-16/data.yaml epochs = 30 batch = 8
+!yolo task = detect mode = train model = yolov8s.pt data = Trial_1-15/data.yaml epochs = 30 batch = 8
 ```
 
 Training output and weights will be saved in `D:\TRAINING\ultralytics\runs\detect\train16\weights\best.pt`.
