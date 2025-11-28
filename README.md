@@ -15,7 +15,7 @@ The dataset is prepared and annotated using **Roboflow**, and the training + inf
 * Train and run YOLOv8 for custom object detection
 * Uses dataset from **Roboflow** (auto-generated YAML)
 * Supports detecting multiple geometric shapes
-![Features](Assets/Detection.png)
+![Features](Assets/Detection1.png)
 ---
 
 ## 📂 Project Structure
