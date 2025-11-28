@@ -1,6 +1,6 @@
-# 🐍 Python OJD – Object Detection (YOLOv8 + Roboflow)
+# 🐍 Python OJD – Object Shape Detection (YOLOv8 + Roboflow)
 
-This repository contains an end-to-end Object Detection project (OJD) using **Ultralytics YOLOv8**. The goal is to detect **three shape categories**:
+This repository contains an end-to-end Object Shape Detection project (OJD) using **Ultralytics YOLOv8**. The goal is to detect **three shape categories**:
 
 * **Square**
 * **Circle**
